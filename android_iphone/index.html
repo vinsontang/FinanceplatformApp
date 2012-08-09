@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/ui-tab.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+		<link rel="stylesheet" href="css/ui-res.css">
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script>
+        </script>
+    </head>
+    <body class="um-vp c-wh" ontouchstart>
+        <div id="page_0" class="up ub ub-ver" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh c-bla c-m2 t-wh">
+                <h1 class="ut ulev0 ut-s tx-c" tabindex="0">第一外汇投资</h1>
+            </div>
+            <!--header结束-->
+			<!--content开始-->
+            <div id="content" class="ub-f1 tx-l t-bla ub-img6 res10">
+                
+            </div>
+            <!--content结束-->
+			<!--footer开始-->
+            <div id="footer" class="uf t-wh">
+                 <!--iPhone导航条开始-->
+				<div class="ub c-bla c-m2 tab t-wh">
+					<input class="uhide" type="radio" name="tabSwitch" checked="true">
+					<div ontouchstart="zy_touch('',zy_for)" onclick="loadContent('index_content.html')" class="ub-f1 ub ub-ver tab-act">
+						<div class="ub-f1 ub-img5 tp-home"></div>
+						<div class="uinn ulev-2 tx-c">首页</div>
+					</div>	
+					<input class="uhide" type="radio" name="tabSwitch">
+					<div ontouchstart="zy_touch('',zy_for)" onclick="loadContent('product_content.html')" class="ub-f1 ub ub-ver tab-act">
+						<div class="ub-f1 ub-img5 tp-menu"></div>
+						<div class="uinn ulev-2 tx-c">商品</div>
+					</div>
+					<input class="uhide" type="radio" name="tabSwitch">
+					<div ontouchstart="zy_touch('',zy_for)" onclick="loadContent('message_content.html')" class="ub-f1 ub ub-ver tab-act">
+						<div class="ub-f1 ub-img5 tp-talk"></div>
+						<div class="uinn ulev-2 tx-c">信息</div>
+					</div>
+					<input class="uhide" type="radio" name="tabSwitch">
+					<div ontouchstart="zy_touch('',zy_for)" onclick="loadContent('user_content.html')" class="ub-f1 ub ub-ver tab-act">
+						<div class="ub-f1 ub-img5 tp-info"></div>
+						<div class="uinn ulev-2 tx-c">个人</div>
+					</div>
+				</div>
+				<!--iPhone导航条结束-->
+            </div>
+            <!--footer结束-->
+        </div>
+    </body>
+    <script>
+    	zy_init();
+        window.uexOnload = function(type){
+            if (!type) {
+				loadContent("index_content.html");
+            }
+			window.onorientationchange=window.onresize=function()
+			{
+				zy_resize("content",0,$$("header").offsetHeight);				
+			}
+        }
+		
+		function loadContent(url){
+			zy_con("content", url, 0,$$("header").offsetHeight);
+		}
+    </script>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-img.css">
+        <link rel="stylesheet" href="css/ui-res.css">
+        <link rel="stylesheet" href="css/ui-list.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+		<script src="js/zy_tmpl.js">
+        </script>
+        <script src="js/iscroll.js">
+        </script>
+        <script src="js/jquery-1.7.1.js">
+        </script>
+        <script src="js/fp_ajax.js">
+        </script>
+    </head>
+    <body class="um-vp c-wh" ontouchstart>
+        <div class="ub ub-ver ub-con">
+            <!--块容器开始-->
+            <div class="" id="product_type_wrapper">
+                <div class="product_type_list">
+                    <div class="product_type_item ufl uinn">
+                        条目1111
+                    </div>
+                    <div class="product_type_item ufl uinn">
+                        条目2222
+                    </div>
+                    <div class="product_type_item ufl uinn">
+                        条目3333
+                    </div>
+                    <div class="product_type_item ufl uinn">
+                        条目4444
+                    </div>
+                    <div class="product_type_item ufl uinn">
+                        条目5555
+                    </div>
+                    <div class="product_type_item ufl uinn">
+                        条目6666
+                    </div>
+                    <div class="product_type_item ufl uinn">
+                        条目7777
+                    </div>
+                    <div class="product_type_item ufl uinn">
+                        条目8888
+                    </div>
+                </div>
+            </div>
+            <!--块容器结束-->
+            <div class="ub-f1" id="product_wrapper">
+                <div class="product_list ubt b-gra">
+                	<!--
+                    <div ontouchstart="zy_touch('btn-act')" class="product_item ub ubb b-gra ub-ac umh3 lis">
+                    	<div class="t-blu umar-r">
+                            ${Product}
+                        </div>
+                        <div class="ub-f1 ut-s">
+                            $(Tactics_Title) 
+                        </div>
+                    </div>
+					-->
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var productTypeScroll, productScroll;
+        zy_init();
+        window.uexOnload = function(type){
+            if (!type) {
+                uexWindow.setBounce("1");
+                uexWindow.showBounceView("0", "#FFF", "0");
+                uexWindow.showBounceView("1", "#FFF", "0");
+            }
+            
+            var width = 0;
+            $('.product_type_list .product_type_item').each(function(){
+                width += $(this).outerWidth();
+            });
+            $('.product_type_list').width(width);
+            
+            if (productTypeScroll != undefined) 
+                productTypeScroll.refresh();
+            if (productScroll != undefined) 
+                productScroll.refresh();
+            
+            new fp_ajax({
+                url: "http://192.168.1.11/a/Index",
+                success: function(id, status, result){
+                    var list = JSON.parse(result);
+					
+					
+                }
+            });
+        }
+        
+        if (productTypeScroll == undefined) {
+            productTypeScroll = new iScroll('product_type_wrapper', {
+                hScrollbar: false,
+                checkDOMChanges: true,
+                bounce: false,
+                onBeforeScrollStart: iscrollBeforeScrollStart
+            });
+        }
+        
+        if (productScroll == undefined) {
+            productScroll = new iScroll('product_wrapper', {
+                checkDOMChanges: true,
+                bounce: false,
+                onBeforeScrollStart: iscrollBeforeScrollStart
+            });
+        }
+        
+        function iscrollBeforeScrollStart(e){
+            var target = e.target;
+            while (target.nodeType != 1) 
+                target = target.parentNode;
+            if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'A') 
+                e.preventDefault();
+        };
+    </script>
+</html>
