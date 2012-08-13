@@ -10,6 +10,6 @@
 <logserverip/> 
 <showmyspace>false</showmyspace>
 <obfuscation>false</obfuscation>
-<bgcolor>#ffffff</bgcolor>
-<orientation>15</orientation>
+<bgcolor/>
+<orientation>1</orientation>
 </widget>

@@ -24,6 +24,13 @@
 		};
 		uexXmlHttpMgr.open(that.options.id,that.options.type,that.options.url,that.options.timeout);
 		uexXmlHttpMgr.send(that.options.id);
+
+//		$.getJSON(that.options.url,function(data){
+//			alert(data);
+//			that.options.success(0,1,data);
+//		},"json",function(error){
+//			alert(error);
+//		},that.options.type,true);
     };
 	
     fp_ajax.prototype = {};

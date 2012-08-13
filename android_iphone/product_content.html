@@ -1,32 +1,60 @@
 <!DOCTYPE html>
 <html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
-  <head>
-    <title>
-    </title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" href="css/ui-base.css">
-    <link rel="stylesheet" href="css/ui-box.css">
-    <link rel="stylesheet" href="css/ui-color.css">
-    <script src="js/zy_control.js">
-    </script>
-    <script src="js/zy_click.js">
-    </script>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-img.css">
+        <link rel="stylesheet" href="css/ui-res.css">
+        <link rel="stylesheet" href="css/ui-list.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/zy_tmpl.js">
+        </script>
+        <script src="js/iscroll.js">
+        </script>
+        <script src="js/jquery-1.7.1.js">
+        </script>
+		<script src="js/fp_ajax.js">
+        </script>
+		<script src="js/fp_app_base.js">
+        </script>
+		<script src="js/fp_app_product.js">
+        </script>
+        <script>
+        </script>
+    </head>
+    <body class="um-vp c-wh" ontouchstart>
+        <div class="ub ub-ver ub-con">
+            <!--块容器开始-->
+            <div class="" id="product_type_wrapper">
+                <div class="product_type_list">
+                </div>
+            </div>
+            <!--块容器结束-->
+            <div class="ub-f1" id="product_wrapper">
+                <div class="product_list ubt b-gra">
+                </div>
+            </div>
+        </div>
+    </body>
     <script>
-	</script>
-  </head>
-<body class="um-vp" ontouchstart>
-	product content.
-</body>
-<script>
-zy_init();
-window.uexOnload=function(type)
-{
-	if(!type){
-		uexWindow.setBounce("1");
-		uexWindow.showBounceView("0","#FFF","0");
-		uexWindow.showBounceView("1","#FFF","0");
-	}
-}
-</script>
+        var fa_p;
+        zy_init();
+        window.uexOnload = function(type){
+            if (!type) {
+                uexWindow.setBounce("1");
+                uexWindow.showBounceView("0", "#FFF", "0");
+                uexWindow.showBounceView("1", "#FFF", "0");
+            }
+			
+			fa_p = new fp_app_product();
+			fa_p.loadProductTypes();
+        }
+    </script>
 </html>
