@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="css/ui-base.css">
         <link rel="stylesheet" href="css/ui-box.css">
         <link rel="stylesheet" href="css/ui-color.css">
+		<link rel="stylesheet" href="css/fp_app.css">
         <script src="js/zy_control.js">
         </script>
         <script src="js/zy_click.js">
@@ -20,6 +21,8 @@
         </script>
         <script src="js/jquery-1.7.1.js">
         </script>
+		<script src="js/fp_data.js">
+        </script>
         <script src="js/fp_ajax.js">
         </script>
 		<script src="js/fp_app_base.js">
@@ -28,10 +31,24 @@
         </script>
     </head>
     <body class="um-vp c-wh" ontouchstart>
-        <div class="ub ub-ver ub-con" id="product_wrapper">
+        <!--<div class="ub ub-ver ub-con" id="product_wrapper">
             <div class="product_list ubt b-gra">
             </div>
+        </div>-->
+		<div class="ub ub-ver ub-con">
+            <!--块容器开始-->
+            <div class="" id="product_type_wrapper">
+                <div class="product_type_list">
+                </div>
+            </div>
+            <!--块容器结束-->
+            <div class="ub-f1" id="product_wrapper">
+                <div class="product_list ubt b-gra">
+                </div>
+            </div>
         </div>
+		<div class="um-vp up c-overlay uhide" id="msg_overlay">
+		</div>
     </body>
     <script>
         var fa_i;
@@ -44,7 +61,7 @@
             }
 			
 			fa_i = new fp_app_index();
-			fa_i.loadProducts();
+			fa_i.loadProductTypes();
         }
     </script>
 </html>

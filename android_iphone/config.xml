@@ -2,14 +2,14 @@
 <widget appId="10082819" channelCode="000" height="480" pid="" sreensize="4.5" version="00.00.0000" viewmode="application" widgetId="" width="320">
 <name>第一外汇投资</name>
 <description/>
-<author email=""> </author>
+<author email="cs_1sttz@126.com">第一外汇投资</author>
 <icon src="icon.png"/>
-<license href=""/>
+<license href="www.1sttz.com">©Copyright 2012 第一外汇投资 www.1sttz.com</license>
 <content encoding="utf-8" src="index.html"/>
 <updateurl/>
 <logserverip/> 
 <showmyspace>false</showmyspace>
 <obfuscation>false</obfuscation>
-<bgcolor/>
-<orientation>1</orientation>
+<bgcolor>#000000</bgcolor>
+<orientation>15</orientation>
 </widget>

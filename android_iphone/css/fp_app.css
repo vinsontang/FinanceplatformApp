@@ -1,0 +1,71 @@
+.uinn6 {
+    padding: 0.75em 1em;
+    margin: 0;
+}
+
+.im_o_b_1 {
+    background-image: url('img/o_b_1.png');
+}
+
+.im_o_b_2 {
+    background-image: url('img/o_b_2.png');
+}
+
+.im_o_s_1 {
+    background-image: url('img/o_s_1.png');
+}
+
+.im_o_s_2 {
+    background-image: url('img/o_s_2.png');
+}
+
+.im_t_1 {
+    background-image: url('img/t_1.png');
+}
+
+.im_t_2 {
+    background-image: url('img/t_2.png');
+}
+
+#product_type_wrapper {
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#0D86C3), to(#056DB3));
+}
+.product_type_item.active{
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#6BCDFE), to(#37A5EB));
+}
+
+.c-overlay{
+	background-color:rgba(0,0,0,0.3);
+}
+
+.product_content{
+	border-top:3px solid #127BBC;
+}
+
+
+.order,.tactic{
+	border:5px solid;
+}
+
+.clear{
+	clear:both;
+}
+
+.c-o-b{
+	background-color:#FF3232;
+}
+.c-o-s{
+	background-color:#00B400;
+}
+.c-t{
+	background-color:#FFA000;
+}
+.b-o-b{
+	border-color:#FF3232;
+}
+.b-o-s{
+	border-color:#00B400;
+}
+.b-t{
+	border-color:#FFA000;
+}

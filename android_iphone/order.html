@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-btn.css">
+        <link rel="stylesheet" href="css/ui-tab.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/ui-res.css">
+        <link rel="stylesheet" href="css/fp_app.css">
+        <script src="js/zy_anim.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/zy_tmpl.js">
+        </script>
+        <script src="js/jquery-1.7.1.js">
+        </script>
+        <script src="js/fp_data.js">
+        </script>
+        <script src="js/fp_ajax.js">
+        </script>
+        <script src="js/fp_app_base.js">
+        </script>
+    </head>
+    <body class="um-vp c-wh" ontouchstart>
+        <div id="page_1" class="up ub ub-ver" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh c-wh">
+                <!--按钮开始-->
+                <div class="btn btn-l btn-a ub ub-ac " onclick="uexWindow.close(-1);">
+                    <div class="ulim">
+                        返回
+                    </div>
+                </div>
+                <!--按钮结束--><h1 class="ut ulev0 ut-s tx-c" tabindex="0">第一外汇投资</h1>
+            </div>
+            <!--header结束-->
+            <!--content开始-->
+            <div id="content" class="ub-f1 tx-l">
+                <!--
+                <div class="order ulev1 b-o-b">
+                <div class="order_title c-o-b t-wh">
+                <div class="order_title_type ufr uinn">
+                卖/沽
+                </div>
+                <div class="order_title_symble uinn">
+                GBP/USD
+                </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="order_content">
+                <div class="uinn6">
+                <span>入市位：</span>
+                <span>1.5580</span>
+                </div>
+                <div class="uinn6">
+                <span>获利位：</span>
+                <span>1.5480</span>
+                </div>
+                <div class="uinn6">
+                <span>止损位：</span>
+                <span>1.5610</span>
+                </div>
+                </div>
+                </div>
+                -->
+            </div>
+            <!--content结束-->
+        </div>
+    </body>
+    <script>
+                window.uexOnload = function(type){
+        			var id = fp_data.getItem("n-p-id");
+                    new fp_ajax({
+                        url: new fp_app_base().url + "/a/Order?id=" + id,
+                        success: function(id, status, result){
+        					
+                            var tmpl = '<div class="order ulev1 ${cb:Direction_1}"><div class="order_title ${cb:Direction_2} t-wh">' +
+        		                    '<div class="order_title_type ufr uinn">${Direction}</div>' +
+        		                    '<div class="order_title_symble uinn">${Product}</div></div>' +
+        		                    '<div class="clear"></div>' +
+        		                    '<div class="order_content">' +
+        		                    '<div class="uinn6">' +
+        		                    '<span>入市位：</span>' +
+        		                    '<span>${入市位}</span></div>' +
+        		                    '<div class="uinn6">' +
+        		                    '<span>获利位：</span>' +
+        		                    '<span>${获利位}</span></div>' +
+        		                    '<div class="uinn6">' +
+        		                    '<span>止损位：</span>' +
+        		                    '<span>${止损位}</span></div></div></div>';
+                            
+                            var data =	new Array(JSON.parse(result));
+        
+                            var tmpl_result = zy_tmpl(tmpl, data, zy_tmpl_count(data), function(data, cb){
+                                switch (cb[1]) {
+                                    case "Direction_1":
+                                        if (data.Direction == "买/揸") 
+                                            return "b-o-b";
+                                        else 
+                                            return "b-o-s";
+                                        break;
+                                    case "Direction_2":
+                                        if (data.Direction == "买/揸") 
+                                            return "c-o-b";
+                                        else 
+                                            return "c-o-s";
+                                        break;
+                                }
+                                return "";
+                            });
+                            
+                            $("#content").html(tmpl_result);
+                        }
+                    });
+                };
+            
+    </script>
+</html>
